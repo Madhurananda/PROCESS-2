@@ -1,0 +1,17 @@
+Welcome to the PROCESS-2 Data 
+
+Please accept the data aggreements at <huggingface link>
+
+The structure of the data: 
+
+PROCESS-2/
+ ├── PROCESS-2_rec__XXX/
+ │     ├── PROCESS-2_rec__XXX__SFT.wav
+ │     ├── PROCESS-2_rec__XXX__SFT.txt
+ │     ├── PROCESS-2_rec__XXX__PFT.wav
+ │     ├── PROCESS-2_rec__XXX__PFT.txt
+ │     ├── PROCESS-2_rec__XXX__CTD.wav
+ │     └── PROCESS-2_rec__XXX__CTD.txt
+
+All the best,
+The PROCESS challenge organisers
