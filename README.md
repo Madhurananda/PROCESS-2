@@ -1,3 +1,5 @@
+![License](https://img.shields.io/badge/license-Apache--2.0-blue)
+
 # PROCESS-2: Reproducible Analysis Pipeline
 
 This repository contains all scripts required to reproduce the preprocessing, statistical analyses, and baseline modelling experiments associated with the **PROCESS-2 speech dataset**.
