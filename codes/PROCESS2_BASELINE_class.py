@@ -487,10 +487,10 @@ if __name__ == '__main__' and '__file__' in globals():
     print(f'\n\nScript starting at: {start_time.strftime("%Y/%m/%d at %H:%M:%S")}\n')
 
     # --- Paths ---
-    DATA_DIR = '../data/Cogno_Challenge_2/COGNO_DATA_SHARE_EXPMNT/'
+    DATA_DIR = '../data/PROCESS-2/'
     BASE_DIR = '..'
-    FEAT_DIR = f'{BASE_DIR}/data/Cogno_Challenge_2/results/feats/'
-    RESULT_DIR = f'{BASE_DIR}/data/Cogno_Challenge_2/results/class_results/'
+    FEAT_DIR = f'{BASE_DIR}/data/results/feats/'
+    RESULT_DIR = f'{BASE_DIR}/data/results/class_results/'
 
     # --- Load metadata ---
     df_meta = pd.read_csv(DATA_DIR + 'meta-info.csv').rename(columns={'IDs': 'dir_name'})

@@ -492,10 +492,10 @@ if __name__ == '__main__' and '__file__' in globals():
 
     # --- Paths ---
     BASE_DIR = '..'
-    FEAT_DIR = f'{BASE_DIR}/data/Cogno_Challenge_2/results/feats/'
-    RESULTS_DIR = f'{BASE_DIR}/data/Cogno_Challenge_2/results/class_results/'
-    DATA_DIR = '../data/Cogno_Challenge_2/COGNO_DATA_SHARE_EXPMNT/'
-
+    FEAT_DIR = f'{BASE_DIR}/data/results/feats/'
+    RESULTS_DIR = f'{BASE_DIR}/data/results/class_results/'
+    DATA_DIR = '../data/PROCESS-2/'
+    
     # --- Hyperparameters ---
     VERBOSE = 0
     MAX_LEN = 512

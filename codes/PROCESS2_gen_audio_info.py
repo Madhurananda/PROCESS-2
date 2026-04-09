@@ -329,8 +329,8 @@ if __name__ == '__main__' and '__file__' in globals():
     # -------------------------------------------------------------------------
     # 2.4 Optional: Plot spectrogram for a sample file
     # -------------------------------------------------------------------------
-    sample_audio = data_dir + 'Cogno_Challenge_2/PROCESS-2/PROCESS-2_rec__002/PROCESS-2_rec__002__CTD.wav'
-    output_fig = data_dir + 'Cogno_Challenge_2/FIGS/spectrogram.png'
+    sample_audio = data_dir + 'PROCESS-2/PROCESS-2_rec__002/PROCESS-2_rec__002__CTD.wav'
+    output_fig = data_dir + 'FIGS/spectrogram.png'
     if os.path.isfile(sample_audio):
         plot_spectrogram(sample_audio, save_path=output_fig, duration=10.0,
                          log_freq=False, cmap='viridis')
@@ -340,7 +340,7 @@ if __name__ == '__main__' and '__file__' in globals():
     # -------------------------------------------------------------------------
     # 2.5 File size statistics for all .wav files in PROCESS-2 folder
     # -------------------------------------------------------------------------
-    process2_dir = "../data/Cogno_Challenge_2/PROCESS-2"
+    process2_dir = "../data/PROCESS-2"
     if os.path.isdir(process2_dir):
         do_get_file_sizes(process2_dir)
     else:

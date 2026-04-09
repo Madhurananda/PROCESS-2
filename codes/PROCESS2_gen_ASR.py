@@ -114,7 +114,7 @@ if __name__ == '__main__' and '__file__' in globals():
     # Configuration
     # -------------------------------------------------------------------------
     data_dir = '../data/'
-    asr_log_dir = '../data/Cogno_Challenge_2/ASR_logs/'
+    asr_log_dir = '../data/ASR_logs/'
     os.makedirs(asr_log_dir, exist_ok=True)
 
     # Metadata file
