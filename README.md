@@ -2,7 +2,7 @@
 
 # PROCESS-2: Reproducible Analysis Pipeline
 
-This repository contains all scripts required to reproduce the preprocessing, statistical analyses, and baseline modelling experiments associated with the **PROCESS-2 speech dataset**.
+This repository contains all scripts required to reproduce the preprocessing, statistical analyses, and baseline modelling experiments associated with the **PROCESS-2 speech dataset**, available at the [Hugging Face repository]([url](https://huggingface.co/datasets/Madhurananda/PROCESS-2)). 
 
 The provided pipeline enables full reproducibility of the experiments reported in the accompanying publication.
 
