@@ -193,3 +193,8 @@ Researchers may adapt or extend the pipeline for benchmarking, comparative model
 If you use the PROCESS-2 dataset or associated code, please cite the corresponding dataset publication.
 
 [Insert Citation / BibTeX here]
+
+
+
+[![DOI](https://zenodo.org/badge/1197188333.svg)](https://doi.org/10.5281/zenodo.19900224)
+
