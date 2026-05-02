@@ -1,19 +1,62 @@
-![License](https://img.shields.io/badge/license-Apache--2.0-blue)
+<div align="center">
 
-# PROCESS-2: Reproducible Analysis Pipeline
+# 🧪 PROCESS-2  
+### Reproducible Speech Analysis & Baseline Modelling Pipeline
 
-This repository contains all scripts required to reproduce the preprocessing, statistical analyses, and baseline modelling experiments associated with the **PROCESS-2 speech dataset**, available at the [Hugging Face repository](https://huggingface.co/datasets/CognoSpeak/PROCESS-2). 
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)]()
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)]()
+[![Conda](https://img.shields.io/badge/Environment-Conda-green.svg)]()
+[![GPU](https://img.shields.io/badge/GPU-Optional-orange.svg)]()
+[![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow.svg)](https://huggingface.co/datasets/CognoSpeak/PROCESS-2)
+[![Reproducibility](https://img.shields.io/badge/Reproducible-Research-brightgreen.svg)]()
+[![Open Science](https://img.shields.io/badge/Open%20Science-Compatible-blueviolet.svg)]()
+[![DOI](https://zenodo.org/badge/1197188333.svg)](https://doi.org/10.5281/zenodo.19900224)
 
-The provided pipeline enables full reproducibility of the experiments reported in the accompanying publication.
+**Official analysis and experiment pipeline for the PROCESS-2 speech dataset**
+
+</div>
 
 ---
 
-## Repository Structure
+## 🔬 Overview
+
+This repository contains the complete **reproducible analysis pipeline** for the **PROCESS-2 speech dataset**, publicly available on Hugging Face:
+
+👉 https://huggingface.co/datasets/CognoSpeak/PROCESS-2
+
+The pipeline reproduces:
+
+- dataset preprocessing
+- statistical analyses
+- speech feature extraction
+- automatic speech recognition (ASR)
+- baseline machine learning models
+- large language model (LLM) experiments
+
+All experiments reported in the accompanying publication can be reproduced directly from this repository.
+
+---
+
+## 🧬 Research Context
+
+PROCESS-2 supports research in:
+
+- speech-based cognitive assessment
+- dementia and MCI biomarkers
+- clinical speech analytics
+- multimodal AI evaluation
+- reproducible machine learning pipelines
+
+The repository follows **open-science and reproducibility best practices**, enabling transparent benchmarking and future comparative studies.
+
+---
+
+## 📂 Repository Structure
 
 ```
 PROCESS-2/
 │
-├── codes/                     # Main analysis and experiment scripts
+├── codes/                     # Analysis & modelling scripts
 │   ├── PROCESS2_gen_audio_info.py
 │   ├── PROCESS2_data_analysis.py
 │   ├── PROCESS2_rename_cogno.py
@@ -22,24 +65,24 @@ PROCESS-2/
 │   ├── PROCESS2_BASELINE_class.py
 │   └── PROCESS2_BASELINE_LLM.py
 │
-├── envs/                      # Conda environment configuration files
+├── envs/                      # Conda environments
 │   ├── aconda.yml
 │   ├── embed.yml
 │   └── torch-gpu.yml
 │
 ├── results/
-│   └── logs/                  # Automatically generated experiment logs
+│   └── logs/                  # Automatically generated logs
 │
 └── README.md
 ```
 
 ---
 
-## Installation
+## ⚙️ Installation
 
-We recommend using **Conda** to ensure environment reproducibility.
+We strongly recommend **Conda** for full reproducibility.
 
-Create environments using:
+### Create environments
 
 ```bash
 conda env create -f envs/<environment>.yml
@@ -47,13 +90,13 @@ conda env create -f envs/<environment>.yml
 
 ### Available Environments
 
-| Environment   | Purpose                                                    |
-| ------------- | ---------------------------------------------------------- |
-| **ACONDA**    | Data preprocessing, statistics, classical machine learning |
-| **embed**     | Speech embedding extraction                                |
-| **torch-gpu** | ASR generation and LLM experiments (GPU required)          |
+| Environment | Purpose |
+|-------------|---------|
+| **ACONDA** | Preprocessing, statistics, classical ML |
+| **embed** | Speech embedding extraction |
+| **torch-gpu** | ASR generation & LLM experiments |
 
-Activate an environment before running each step:
+Activate before running each stage:
 
 ```bash
 conda activate <environment_name>
@@ -61,21 +104,25 @@ conda activate <environment_name>
 
 ---
 
-## Reproducible Workflow
+## 🚀 Reproducible Workflow
 
-Run the following scripts **in order** to reproduce all analyses and baseline experiments.
+Run scripts **in order** to reproduce all results.
 
-All commands assume execution from the `codes/` directory unless stated otherwise.
+All commands assume execution from:
+
+```
+codes/
+```
 
 ---
 
 ### Step 1 — Generate Audio Metadata
 
-Computes recording statistics including:
+Computes recording statistics:
 
-* audio duration
-* signal-to-noise ratio (SNR)
-* file size statistics
+- duration
+- signal-to-noise ratio (SNR)
+- file size summaries
 
 ```bash
 python PROCESS2_gen_audio_info.py
@@ -85,9 +132,9 @@ Environment: **ACONDA**
 
 ---
 
-### Step 2 — Statistical Data Analysis
+### Step 2 — Statistical Dataset Analysis
 
-Reproduces descriptive dataset statistics reported in the paper.
+Reproduces descriptive statistics reported in the paper.
 
 ```bash
 python PROCESS2_data_analysis.py
@@ -99,7 +146,7 @@ Environment: **ACONDA**
 
 ### Step 2A — Dataset Utilities
 
-Utility script used for dataset organisation and filename harmonisation.
+Dataset organisation and filename harmonisation.
 
 ```bash
 python PROCESS2_rename_cogno.py
@@ -111,7 +158,7 @@ Environment: **ACONDA**
 
 ### Step 3 — Speech Embedding Extraction
 
-Generates acoustic and linguistic embeddings used for downstream modelling.
+Generates acoustic and linguistic representations for modelling.
 
 ```bash
 python PROCESS2_embed.py
@@ -123,7 +170,7 @@ Environment: **embed**
 
 ### Step 4 — Automatic Speech Recognition (ASR)
 
-Generates automatic transcripts from audio recordings.
+Produces automatic transcripts.
 
 ```bash
 python PROCESS2_gen_ASR.py
@@ -131,25 +178,23 @@ python PROCESS2_gen_ASR.py
 
 Environment: **torch-gpu**
 
+GPU recommended but optional depending on configuration.
+
 ---
 
 ### Step 5 — Classical Baseline Models
-
-Run from the `codes/` directory:
 
 ```bash
 python PROCESS2_BASELINE_class.py 12 |& tee -a ../results/logs/PROCESS2_BASELINE_class.txt
 ```
 
-`12` specifies the number of CPU cores used.
+`12` = number of CPU cores.
 
 Environment: **ACONDA**
 
 ---
 
-### Step 6 — LLM Baseline Models
-
-Run from the `codes/` directory:
+### Step 6 — LLM Baseline Experiments
 
 ```bash
 python PROCESS2_BASELINE_LLM.py 0,1,2,3 |& tee -a ../results/logs/PROCESS2_BASELINE_LLM.txt
@@ -161,18 +206,19 @@ Environment: **torch-gpu**
 
 ---
 
-## Outputs
+## 📊 Outputs
 
 Running the full pipeline produces:
 
-* audio metadata summaries
-* statistical dataset analyses
-* speech embeddings
-* ASR transcripts
-* baseline classifier and regressor outputs
-* experiment logs
+- audio metadata summaries
+- dataset statistical analyses
+- speech embeddings
+- ASR transcripts
+- baseline model predictions
+- experiment evaluation outputs
+- execution logs
 
-Logs are automatically written to:
+Logs are automatically stored in:
 
 ```
 results/logs/
@@ -180,21 +226,79 @@ results/logs/
 
 ---
 
-## Reproducibility
+## 🔁 Reproducibility Statement
 
-All preprocessing, analysis, and modelling steps reported in the PROCESS-2 dataset publication can be reproduced using this repository.
+This repository provides **full computational reproducibility** for the PROCESS-2 dataset publication.
 
-Researchers may adapt or extend the pipeline for benchmarking, comparative modelling, or future speech-based cognitive assessment studies.
+The workflow ensures:
+
+- deterministic preprocessing
+- version-controlled environments
+- explicit experiment ordering
+- logged execution traces
+
+Researchers may reuse or extend the pipeline for:
+
+- benchmarking studies
+- model comparison
+- replication experiments
+- clinical speech AI research
 
 ---
 
-## Citation
+## 🤗 Dataset Access
 
-If you use the PROCESS-2 dataset or associated code, please cite the corresponding dataset publication.
+The PROCESS-2 dataset is hosted on Hugging Face:
 
-[Insert Citation / BibTeX here]
+👉 https://huggingface.co/datasets/CognoSpeak/PROCESS-2
+
+Please follow dataset licensing and ethical usage guidelines.
+
+---
+
+## 📚 Citation
+
+If you use this dataset or pipeline, please cite:
+
+```
+PROCESS-2 Speech Dataset and Reproducible Analysis Pipeline
+Author(s): [Authors]
+Year: 2026
+Venue: [Journal / Conference]
+```
+
+### BibTeX
+
+```
+@dataset{process2_2026,
+  title={PROCESS-2 Speech Dataset},
+  author={[Authors]},
+  year={2026},
+  doi={10.5281/zenodo.19900224}
+}
+```
 
 
+---
 
-[![DOI](https://zenodo.org/badge/1197188333.svg)](https://doi.org/10.5281/zenodo.19900224)
+## 🔓 Open Science & Ethics
 
+This repository supports transparent and ethical AI research.
+
+Included:
+- ✅ code
+- ✅ experiment pipeline
+- ✅ reproducibility infrastructure
+
+Not included:
+- ❌ private participant data
+
+All dataset usage must comply with ethical approval and data governance policies.
+
+---
+
+<div align="center">
+
+**Reproducible Speech AI Research • Open Science • Clinical Machine Learning**
+
+</div>
