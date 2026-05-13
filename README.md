@@ -59,7 +59,6 @@ PROCESS-2/
 ├── codes/                     # Analysis & modelling scripts
 │   ├── PROCESS2_gen_audio_info.py
 │   ├── PROCESS2_data_analysis.py
-│   ├── PROCESS2_rename_cogno.py
 │   ├── PROCESS2_embed.py
 │   ├── PROCESS2_gen_ASR.py
 │   ├── PROCESS2_BASELINE_class.py
@@ -138,18 +137,6 @@ Reproduces descriptive statistics reported in the paper.
 
 ```bash
 python PROCESS2_data_analysis.py
-```
-
-Environment: **ACONDA**
-
----
-
-### Step 2A — Dataset Utilities
-
-Dataset organisation and filename harmonisation.
-
-```bash
-python PROCESS2_rename_cogno.py
 ```
 
 Environment: **ACONDA**
