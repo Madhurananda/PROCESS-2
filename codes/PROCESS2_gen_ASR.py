@@ -273,3 +273,94 @@ if __name__ == '__main__' and '__file__' in globals():
 
     print("Wav2Vec2 transcription completed successfully.")
     sys.stdout.flush()
+    
+    
+    
+    # -------------------------------------------------------------------------
+    # 2.3 WER Calculation using jiwer (compatible with older jiwer)
+    # -------------------------------------------------------------------------
+    print("\n" + "=" * 60)
+    print("Computing Word Error Rate (WER) ...")
+    print("=" * 60)
+    sys.stdout.flush()
+    
+    import jiwer
+    from jiwer import wer, process_words
+    import string
+    
+    def normalize(text: str) -> str:
+        """
+        Apply same transformations: lowercase, remove punctuation,
+        collapse multiple spaces, strip.
+        Returns the cleaned text string.
+        """
+        # Lowercase
+        text = text.lower()
+        # Remove punctuation (including apostrophes, hyphens, etc.)
+        text = text.translate(str.maketrans('', '', string.punctuation))
+        # Collapse multiple spaces
+        text = ' '.join(text.split())
+        return text
+    
+    results = []
+    for dir_name in tqdm(df_meta.dir_name, desc="WER"):
+        audio_dir = os.path.join(data_dir, dir_name)
+        wav_files = glob.glob(os.path.join(audio_dir, '*.wav'))
+    
+        for wav_path in wav_files:
+            base = wav_path.replace('.wav', '')
+            ref_path = base + '.txt'
+            hyp_whisper = base + '__ASR_Whisper.txt'
+            hyp_w2v2 = base + '__ASR_W2V2.txt'
+    
+            if not os.path.exists(ref_path):
+                continue
+    
+            try:
+                ref_raw = open(ref_path, 'r', encoding='utf-8').read().strip()
+                reference = normalize(ref_raw)
+            except Exception as e:
+                print(f"Error reading {ref_path}: {e}")
+                continue
+    
+            for model_name, hyp_path in [('Whisper', hyp_whisper), ('Wav2Vec2', hyp_w2v2)]:
+                if not os.path.exists(hyp_path):
+                    continue
+                try:
+                    hyp_raw = open(hyp_path, 'r', encoding='utf-8').read().strip()
+                    hypothesis = normalize(hyp_raw)
+                except Exception as e:
+                    print(f"Error reading {hyp_path}: {e}")
+                    continue
+    
+                # Now call wer and process_words with the normalized strings
+                error_rate = wer(reference, hypothesis)
+                measures = process_words(reference, hypothesis)
+    
+                results.append({
+                    'dir_name': dir_name,
+                    'audio': os.path.basename(wav_path),
+                    'model': model_name,
+                    'WER': round(error_rate, 4),
+                    'substitutions': measures.substitutions,
+                    'deletions': measures.deletions,
+                    'insertions': measures.insertions,
+                    'hits': measures.hits,
+                    'reference': ref_raw,   # keep original for inspection
+                    'hypothesis': hyp_raw
+                })
+    
+    # Save results
+    wer_csv = os.path.join(asr_log_dir, 'WER_results.csv')
+    df_wer = pd.DataFrame(results)
+    df_wer.to_csv(wer_csv, index=False)
+    
+    summary = df_wer.groupby('model')['WER'].mean()
+    print("\nAverage WER per model:")
+    print(summary.to_string())
+    print(f"\nDetailed results saved to {wer_csv}")
+    sys.stdout.flush()
+    
+    
+    
+    
