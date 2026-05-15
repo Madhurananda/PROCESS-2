@@ -245,26 +245,44 @@ Please follow dataset licensing and ethical usage guidelines.
 
 ## 📚 Citation
 
-If you use this dataset or pipeline, please cite:
+If you use **PROCESS-2**, please cite **the dataset paper, and code repository**.
 
-```
-PROCESS-2 Speech Dataset and Reproducible Analysis Pipeline
-Author(s): [Authors]
-Year: 2026
-Venue: [Journal / Conference]
-```
+---
 
-### BibTeX
+### 📄 Dataset Paper
 
-```
-@dataset{process2_2026,
-  title={PROCESS-2 Speech Dataset},
-  author={[Authors]},
-  year={2026},
-  doi={10.5281/zenodo.19900224}
+Pahar, M., Illingworth, C. H., Mirheidari, B., Elghazaly, H., Peters, F., Young, S., Leung, W. Z., Kaur, L., Blackburn, D., & Christensen, H. (2026).  
+**PROCESS-2: A Benchmark Speech Corpus for Early Cognitive Impairment Detection.**  
+*arXiv preprint arXiv:2605.14888.*
+
+#### BibTeX
+```bibtex
+@article{pahar2026PROCESS2,
+  title={{PROCESS}-2: A Benchmark Speech Corpus for Early Cognitive Impairment Detection},
+  author={Pahar, Madhurananda and Illingworth, Caitlin H. and Mirheidari, Bahman and Elghazaly, Hend and Peters, Fritz and Young, Sophie and Leung, Wing-Zin and Kaur, Labhpreet and Blackburn, Daniel and Christensen, Heidi},
+  journal={arXiv preprint arXiv:2605.14888},
+  year={2026}
 }
 ```
 
+### 📄 Code repository
+
+Pahar, M. (2026) *Madhurananda/PROCESS-2: PROCESS-2*. Zenodo. doi:10.5281/zenodo.19900225.
+
+#### BibTeX
+
+```bibtex
+@software{pahar_PROCESS2_codes,
+  author       = {Pahar, Madhurananda},
+  title        = {Madhurananda/{PROCESS}-2: {PROCESS}-2},
+  month        = Apr,
+  year         = 2026,
+  publisher    = {Zenodo},
+  version      = {v1.0.0},
+  doi          = {10.5281/zenodo.19900225},
+  url          = {https://doi.org/10.5281/zenodo.19900225}
+}
+```
 
 ---
 
