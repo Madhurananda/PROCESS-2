@@ -251,9 +251,7 @@ If you use **PROCESS-2**, please cite **the dataset paper, and code repository**
 
 ### 📄 Dataset Paper
 
-Pahar, M., Illingworth, C. H., Mirheidari, B., Elghazaly, H., Peters, F., Young, S., Leung, W. Z., Kaur, L., Blackburn, D., & Christensen, H. (2026).  
-**PROCESS-2: A Benchmark Speech Corpus for Early Cognitive Impairment Detection.**  
-*arXiv preprint arXiv:2605.14888.*
+Pahar, M., Illingworth, C. H., Mirheidari, B., Elghazaly, H., Peters, F., Young, S., Leung, W. Z., Kaur, L., Blackburn, D., & Christensen, H. (2026).  **PROCESS-2: A Benchmark Speech Corpus for Early Cognitive Impairment Detection.**  *arXiv preprint arXiv:2605.14888.*
 
 #### BibTeX
 ```bibtex
